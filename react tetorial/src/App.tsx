@@ -4,31 +4,34 @@ import HOC from './components/HOC.tsx'
 import UseState from './components/Hooks/use-state.tsx'
 import UseRef from './components/Hooks/use-ref.tsx'
 import './App.css'
-import type React from 'react'
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 export default function App() {
 
-  function Greating(Component: React.ComponentType <{name:string}>){
-    return function Enhance(){
-      return(
-        <>
-          <h1>Hello</h1>
-          <Component name="Hamza" />
-          <UseState />
-          <UseRef />
-        </>
-      )
-    }
-  }
+  // function Greating(Component: React.ComponentType <{name:string}>){
+  //   return function Enhance(){
+  //     return(
+  //       <>
+  //         <h1>Hello</h1>
+  //         <Component name="Hamza" />
+  //         <UseState />
+  //         <UseRef />
+  //       </>
+  //     )
+  //   }
+  // }
 
-  const  EnhanceGreating = Greating(HOC);
+  // const  EnhanceGreating = Greating(HOC);
   return (
     <>
-      <Try />
-      <Welcomes name="Firaol" age={12} />
-      <Welcomes name="Amar" age={20} />
-      <Welcomes name="Ayub" age={23} />
-      <EnhanceGreating />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<UseState />} />
+            <Route path='/useRef' element={<UseRef />} />
+            <Route path='/try' element={<Try />} />
+            <Route path='/hoc' element={<HOC />} />
+          </Routes>
+        </BrowserRouter>
     </>
   )
 }

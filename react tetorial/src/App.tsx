@@ -8,6 +8,8 @@ import './App.css'
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Dashboard from './components/context/dashbord.tsx'
 import { UserContext } from './components/context/about.tsx'
+import Headless from './components/headlessComponent.tsx'
+import Test from './components/vitest-test.tsx'
 export default function App() {
 
   // function Greating(Component: React.ComponentType <{name:string}>){
@@ -35,9 +37,12 @@ export default function App() {
             <Route path='*' element={<NotFound/>} />
           </Routes>
         </BrowserRouter> */}
-        <UserContext.Provider value="Fera">
+        {/* <UserContext.Provider value="Fera">
             <Dashboard />
-        </UserContext.Provider>
+        </UserContext.Provider> */}
+
+        {/* <Headless /> */}
+        <Test />
     </>
   )
 }
